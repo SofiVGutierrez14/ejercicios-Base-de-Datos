@@ -146,3 +146,16 @@ SELECT nombre ,telefono FROM Usuarios WHERE marca NOT IN ('MOTOROLA','NOKIA') ;
 
 -- Calcular la suma de los saldos de los usuarios de la compañía telefónica TELCEL
 SELECT SUM(saldo) FROM Usuarios WHERE compania = 'TELCEL';
+
+
+--EJERCICIOS JOIN EN BASES DE DATOS 
+--1) Una empresa tiene registrados a sus clientes en una tabla llamada clientes. También tiene una tabla "provincias" donde registra los nombres de las provincias. En base a los datos cargados aquí, Queremos saber de qué provincias tenemos clientes, sin repetir el nombre de la provincia: las consultas que permitan responder las siguientes preguntas:
+--¿Qué provincias no tenemos clientes?
+
+
+--#PROVINCIAS QUE NO TIENEN CLIENTES 
+
+SELECT provincias.nombre FROM provincias LEFT JOIN clientes
+ON clientes.codigoProvincia=provincias.codigo
+WHERE clientes.codigoprovincia IS null;
+
